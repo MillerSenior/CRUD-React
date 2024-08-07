@@ -1,2 +1,3 @@
--categories list/w-all events tied to specific category
--events list, with edit and delete.
+-categories list/w-all events tied to specific category-links
+-home link and back button
+-separate pages for events list, with edit and delete.

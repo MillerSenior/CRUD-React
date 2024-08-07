@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import Logout from './Logout';
+import BackButton from "./BackButton";
+import Navigation from "./NavBar";
 
 export default function Dashboard() {
     const [loading, setLoading] = useState(true);
@@ -34,14 +36,7 @@ export default function Dashboard() {
         <div>
             <h2>Dashboard</h2>
             <p>Welcome, {username}!</p> {/* Display username */}
-            <nav>
-                <ul>
-                    <li><Link to="/event-form">Add Event</Link></li>
-                    <li><Link to="/event-table">View Events</Link></li>
-                    <li><Link to="/category-form">Add Category</Link></li>
-                    <li><Logout /></li>
-                </ul>
-            </nav>
+            <Navigation/>
         </div>
     );
 }
