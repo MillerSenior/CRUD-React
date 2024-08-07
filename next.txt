@@ -1,0 +1,2 @@
+-categories list/w-all events tied to specific category
+-events list, with edit and delete.
