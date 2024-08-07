@@ -36,11 +36,13 @@ const authRoutes = require('./routes/auth');
 const registerRoute = require('./routes/register'); // Import the register route
 const dashboardRoute = require('./routes/dashboard'); // Import the dashboard route
 const categoriesRoute = require('./routes/categories'); // Import the categories route
+const eventsRoute = require('./routes/events'); // Import the categories route
 
 app.use('/auth', authRoutes); // Authentication routes
 app.use('/api/register', registerRoute); // Registration route
 app.use('/api/categories', categoriesRoute); // Categories route
 app.use('/api/dashboard', dashboardRoute);
+app.use('/api/events', eventsRoute);
 //app.use('/api', dashboardRoute); // Add this line to use the dashboard route
 
 // Login route
