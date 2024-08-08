@@ -35,6 +35,7 @@ const Navigation = () => {
                 const response = await axios.get('http://localhost:5001/api/events/categories', {
                     headers: { Authorization: `Bearer ${token}` },
                 });
+                console.log('Categories fetched:', response.data); // Log the fetched categories
                 setCategoriesExist(response.data.length > 0);
             } catch (err) {
                 console.error('Error fetching categories:', err);
@@ -50,8 +51,8 @@ const Navigation = () => {
                 <a className="btn btn-ghost normal-case text-xl">React Crud</a>
             </div>
             <div className="flex-none">
-                <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                <div className="dropdown dropdown-end lg:hidden">
+                    <label tabIndex={0} className="btn btn-ghost">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
@@ -89,6 +90,7 @@ const Navigation = () => {
                 </div>
             </div>
         </nav>
+
     );
 };
 
