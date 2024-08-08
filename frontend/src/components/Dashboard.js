@@ -33,10 +33,18 @@ export default function Dashboard() {
     }
 
     return (
-        <div>
-            <h2>Dashboard</h2>
-            <p>Welcome, {username}!</p> {/* Display username */}
+        <>
             <Navigation/>
-        </div>
+            <div className="flex items-center justify-center min-h-screen bg-base-200 p-4">
+                <div className="card w-full max-w-md bg-white shadow-xl rounded-lg p-6">
+                    <div className="card-body">
+                        <h2 className="text-3xl font-bold mb-4 text-center">Dashboard</h2>
+                        <p className="text-lg text-center mb-6">Welcome, {username}!</p>
+                    </div>
+                </div>
+            </div>
+        </>
+
+
     );
 }

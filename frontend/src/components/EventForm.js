@@ -49,64 +49,91 @@ function EventForm() {
 
   return (
       <div>
-        <Navigation />
-        <h2>Add Event</h2>
-        {message && <p>{message}</p>}
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Event Name:</label>
-            <input
-                type="text"
-                value={eventName}
-                onChange={(e) => setEventName(e.target.value)}
-                required
-            />
+        <Navigation/>
+        <div className="card bg-base-100 w-96 shadow-xl mx-auto mt-8">
+          <div className="card-body">
+            <h2 className="card-title">Add Event</h2>
+            {message && <p className="text-red-500">{message}</p>}
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block font-semibold">Event Name:</label>
+                <input
+                    type="text"
+                    value={eventName}
+                    onChange={(e) => setEventName(e.target.value)}
+                    required
+                    className="input input-bordered w-full"
+                />
+              </div>
+              <div>
+                <label className="block font-semibold">Date:</label>
+                <input
+                    type="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    required
+                    className="input input-bordered w-full"
+                />
+              </div>
+              <div>
+                <label className="block font-semibold">Time:</label>
+                <input
+                    type="time"
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                    required
+                    className="input input-bordered w-full"
+                />
+              </div>
+              <div>
+                <label className="block font-semibold">Number of Attendees:</label>
+                <input
+                    min={1}
+                    type="number"
+                    value={attendees}
+                    onChange={(e) => setAttendees(parseInt(e.target.value))}
+                    required
+                    className="input input-bordered w-full"
+                />
+              </div>
+              <div>
+                <label className="block font-semibold">Category:</label>
+                <select
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                    required
+                    className="select select-bordered w-full"
+                >
+                  <option value="">Select Category</option>
+                  {categories.map((category) => (
+                      <option key={category.id} value={category.id.toString()}>
+                        {category.name}
+                      </option>
+                  ))}
+                </select>
+              </div>
+              <button type="submit" className="btn btn-primary">Add Event</button>
+            </form>
           </div>
-          <div>
-            <label>Date:</label>
-            <input
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                required
-            />
+          <div className="card-actions justify-end">
+            <button className="btn btn-square btn-sm">
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+              >
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
           </div>
-          <div>
-            <label>Time:</label>
-            <input
-                type="time"
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
-                required
-            />
-          </div>
-          <div>
-            <label>Number of Attendees:</label>
-            <input
-                min={1}
-                type="number"
-                value={attendees}
-                onChange={(e) => setAttendees(parseInt(e.target.value))}
-                required
-            />
-          </div>
-          <div>
-            <label>Category:</label>
-            <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                required
-            >
-              <option value="">Select Category</option>
-              {categories.map((category) => (
-                  <option key={category.id} value={category.id.toString()}>
-                    {category.name}
-                  </option>
-              ))}
-            </select>
-          </div>
-          <button type="submit">Add Event</button>
-        </form>
+        </div>
       </div>
   );
 }

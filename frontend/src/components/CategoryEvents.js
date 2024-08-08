@@ -43,8 +43,19 @@ function CategoryEvents() {
                     {events.map((event) => (
                         <tr key={event.id}>
                             <td>{event.name}</td>
-                            <td>{event.date}</td>
-                            <td>{event.time}</td>
+                            <td>{new Date(event.date).toLocaleDateString('en-US', {
+                                month: 'short',
+                                day: '2-digit',
+                                year: 'numeric'
+                            })}</td>
+                            <td> {(() => {
+                                const [hours, minutes, seconds] = event.time.split(':').map(Number);
+                                const timeDate = new Date();
+                                timeDate.setHours(hours);
+                                timeDate.setMinutes(minutes);
+                                timeDate.setSeconds(seconds);
+                                return timeDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+                            })()}</td>
                             <td>{event.attendees}</td>
                         </tr>
                     ))}

@@ -109,112 +109,151 @@ function EventTable() {
 
   return (
       <div>
-        <Navigation />
-        <h2>Event Table</h2>
-        {message && <p>{message}</p>}
-        {editingEvent ? (
-            <div>
-              <h3>Edit Event</h3>
-              <form onSubmit={handleEditFormSubmit}>
-                <div>
-                  <label>Event Name:</label>
-                  <input
-                      type="text"
-                      name="name"
-                      value={editingEvent.name}
-                      onChange={handleFormChange}
-                      required
-                  />
-                </div>
-                <div>
-                  <label>Date:</label>
-                  <input
-                      type="date"
-                      name="date"
-                      value={editingEvent.date}
-                      onChange={handleFormChange}
-                      required
-                  />
-                </div>
-                <div>
-                  <label>Time:</label>
-                  <input
-                      type="time"
-                      name="time"
-                      value={editingEvent.time}
-                      onChange={handleFormChange}
-                      required
-                  />
-                </div>
-                <div>
-                  <label>Number of Attendees:</label>
-                  <input
-                      type="number"
-                      name="attendees"
-                      value={editingEvent.attendees}
-                      onChange={handleFormChange}
-                      required
-                  />
-                </div>
-                <div>
-                  <label>Category:</label>
-                  <select
-                      name="category_id"
-                      value={editingEvent.category_id}
-                      onChange={handleFormChange}
-                      required
-                  >
-                    <option value="">Select Category</option>
-                    {categories.map((category) => (
-                        <option key={category.id} value={category.id}>
-                          {category.name}
-                        </option>
-                    ))}
-                  </select>
-                </div>
-                <button type="submit">Update Event</button>
-                <button type="button" onClick={resetForm}>Cancel</button>
-              </form>
-            </div>
-        ) : (
-            <>
-              {events.length > 0 ? (
-                  <table>
-                    <thead>
-                    <tr>
-                      <th>Event Name</th>
-                      <th>Date</th>
-                      <th>Time</th>
-                      <th>Number of Attendees</th>
-                      <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {events.map((event) => (
-                        <tr key={event.id}>
-                          <td>{event.name}</td>
-                          <td>{event.date}</td>
-                          <td>{event.time}</td>
-                          <td>{event.attendees}</td>
-                          <td>
-                            <button onClick={() => handleEdit(event)}>Edit</button>
-                            <button onClick={() => handleDelete(event)}>Delete</button>
-                          </td>
+        <Navigation/>
+
+        <div className="card bg-base-100  shadow-2xl mx-auto mt-8 p-4">
+          <h2 className="card-title text-center">Event Table</h2>
+          {message && <p className="text-red-500 text-center">{message}</p>}
+
+          {editingEvent ? (
+              <div className="card-body">
+                <h3 className="text-lg font-semibold mb-4">Edit Event</h3>
+                <form onSubmit={handleEditFormSubmit} className="space-y-4">
+                  <div>
+                    <label className="block font-semibold">Event Name:</label>
+                    <input
+                        type="text"
+                        name="name"
+                        value={editingEvent.name}
+                        onChange={handleFormChange}
+                        required
+                        className="input input-bordered w-full"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-semibold">Date:</label>
+                    <input
+                        type="date"
+                        name="date"
+                        value={editingEvent.date}
+                        onChange={handleFormChange}
+                        required
+                        className="input input-bordered w-full"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-semibold">Time:</label>
+                    <input
+                        type="time"
+                        name="time"
+                        value={editingEvent.time}
+                        onChange={handleFormChange}
+                        required
+                        className="input input-bordered w-full"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-semibold">Number of Attendees:</label>
+                    <input
+                        type="number"
+                        name="attendees"
+                        value={editingEvent.attendees}
+                        onChange={handleFormChange}
+                        required
+                        className="input input-bordered w-full"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-semibold">Category:</label>
+                    <select
+                        name="category_id"
+                        value={editingEvent.category_id}
+                        onChange={handleFormChange}
+                        required
+                        className="select select-bordered w-full"
+                    >
+                      <option value="">Select Category</option>
+                      {categories.map((category) => (
+                          <option key={category.id} value={category.id}>
+                            {category.name}
+                          </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="flex justify-end space-x-2 mt-4">
+                    <button type="submit" className="btn btn-primary">Update Event</button>
+                    <button type="button" onClick={resetForm} className="btn btn-secondary">Cancel</button>
+                  </div>
+                </form>
+              </div>
+          ) : (
+              <>
+                <div className="card-body overflow-x-auto">
+                  {events.length > 0 ? (
+                      <table className="table w-full">
+                        <thead>
+                        <tr>
+                          <th>Event Name</th>
+                          <th>Date</th>
+                          <th>Time</th>
+                          <th>Number of Attendees</th>
+                          <th></th>
+                          <th></th>
                         </tr>
-                    ))}
-                    </tbody>
-                  </table>
-              ) : (
-                  <p>No events found.</p>
-              )}
-            </>
-        )}
+                        </thead>
+                        <tbody>
+                        {events.map((event) => (
+                            <tr key={event.id}>
+                              <td>{event.name}</td>
+                              <td>{new Date(event.date).toLocaleDateString('en-US', {
+                                month: 'short',
+                                day: '2-digit',
+                                year: 'numeric'
+                              })}</td>
+                              <td> {(() => {
+                                const [hours, minutes, seconds] = event.time.split(':').map(Number);
+                                const timeDate = new Date();
+                                timeDate.setHours(hours);
+                                timeDate.setMinutes(minutes);
+                                timeDate.setSeconds(seconds);
+                                return timeDate.toLocaleTimeString('en-US', {
+                                  hour: 'numeric',
+                                  minute: '2-digit',
+                                  hour12: true
+                                });
+                              })()}</td>
+                              <td>{event.attendees}</td>
+                              <td>
+                                <button onClick={() => handleEdit(event)}
+                                        className="btn btn-secondary btn-sm mr-2">Edit
+                                </button>
+                              </td>
+                              <td>
+                                <button onClick={() => handleDelete(event)} className="btn btn-error btn-sm">Delete
+                                </button>
+                              </td>
+                            </tr>
+
+                        ))}
+                        </tbody>
+                      </table>
+                  ) : (
+                      <p className="text-center">No events found.</p>
+                  )}
+                </div>
+              </>
+          )}
+        </div>
 
         {showDeleteModal && (
-            <div className="modal">
-              <p>Are you sure you want to delete this event?</p>
-              <button onClick={confirmDelete}>Yes</button>
-              <button onClick={() => setShowDeleteModal(false)}>No</button>
+            <div className="modal modal-open">
+              <div className="modal-box">
+                <p>Are you sure you want to delete this event?</p>
+                <div className="modal-action">
+                  <button onClick={confirmDelete} className="btn btn-primary">Yes</button>
+                  <button onClick={() => setShowDeleteModal(false)} className="btn">No</button>
+                </div>
+              </div>
             </div>
         )}
       </div>

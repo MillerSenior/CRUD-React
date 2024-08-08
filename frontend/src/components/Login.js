@@ -50,52 +50,99 @@ function Login() {
         setShowPassword(!showPassword);
     };
 
+    // return (
+    //     <div>
+    //         <h2>Login</h2>
+    //         {error && <p style={{color: 'red'}}>{error}</p>}
+    //         <form onSubmit={handleLogin}>
+    //             <div>
+    //                 <label>Username:</label>
+    //                 <input
+    //                     type='text'
+    //                     value={username}
+    //                     onChange={(e) => setUsername(e.target.value)}
+    //                     required
+    //                 />
+    //             </div>
+    //             <div>
+    //                 <label>Password:</label>
+    //                 <div style={{position: 'relative'}}>
+    //                     <input
+    //                         type={showPassword ? 'text' : 'password'}
+    //                         value={password}
+    //                         onChange={(e) => setPassword(e.target.value)}
+    //                         required
+    //                         style={{paddingRight: '30px'}}
+    //                     />
+    //                     <span
+    //                         onClick={togglePasswordVisibility}
+    //                         style={{
+    //                             position: 'absolute',
+    //                             right: '10px',
+    //                             top: '50%',
+    //                             transform: 'translateY(-50%)',
+    //                             cursor: 'pointer',
+    //                         }}
+    //                     >
+    //                         {showPassword ? '👁️' : '🙈'}
+    //                     </span>
+    //                 </div>
+    //             </div>
+    //             <button type='submit'>Login</button>
+    //         </form>
+    //         <p>
+    //             Don't have an account? <Link to='/register'>Register here</Link>
+    //         </p>
+    //         <p>
+    //             <Link to='/forgotPassword'>Forgot Password</Link>
+    //         </p>
+    //     </div>
+    // );
     return (
-        <div>
-            <h2>Login</h2>
-            {error && <p style={{color: 'red'}}>{error}</p>}
-            <form onSubmit={handleLogin}>
-                <div>
-                    <label>Username:</label>
-                    <input
-                        type='text'
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                    />
+        <div className="flex items-center justify-center min-h-screen bg-base-200 p-4">
+            <div className="card w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl bg-white shadow-xl rounded-lg">
+                <div className="card-body">
+                    <h2 className="card-title text-center text-2xl font-bold mb-6">Login</h2>
+                    {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+                    <form onSubmit={handleLogin}>
+                        <div className="mb-4">
+                            <label className="block text-gray-700">Username:</label>
+                            <input
+                                type="text"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                required
+                                className="input input-bordered w-full"
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-gray-700">Password:</label>
+                            <div className="relative">
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                    className="input input-bordered w-full pr-10"
+                                />
+                                <span
+                                    onClick={togglePasswordVisibility}
+                                    className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                                >
+                  {showPassword ? '👁️' : '🙈'}
+                </span>
+                            </div>
+                        </div>
+                        <button type="submit" className="btn btn-primary w-full">Login</button>
+                    </form>
+                    <p className="text-center mt-4">
+                        Don't have an account? <Link to="/register" className="text-primary">Register here</Link>
+                    </p>
+                    <p className="text-center mt-2">
+                        <Link to="/forgotPassword" className="text-primary">Forgot Password?</Link>
+                    </p>
                 </div>
-                <div>
-                    <label>Password:</label>
-                    <div style={{position: 'relative'}}>
-                        <input
-                            type={showPassword ? 'text' : 'password'}
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                            style={{paddingRight: '30px'}}
-                        />
-                        <span
-                            onClick={togglePasswordVisibility}
-                            style={{
-                                position: 'absolute',
-                                right: '10px',
-                                top: '50%',
-                                transform: 'translateY(-50%)',
-                                cursor: 'pointer',
-                            }}
-                        >
-                            {showPassword ? '👁️' : '🙈'}
-                        </span>
-                    </div>
-                </div>
-                <button type='submit'>Login</button>
-            </form>
-            <p>
-                Don't have an account? <Link to='/register'>Register here</Link>
-            </p>
-            <p>
-                <Link to='/forgotPassword'>Forgot Password</Link>
-            </p>
+            </div>
         </div>
     );
 }
