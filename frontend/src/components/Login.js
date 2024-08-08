@@ -14,7 +14,7 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/login', {username, password});
+            const response = await axios.post('http://localhost:5001/api/login', {username, password});
             console.log('Login response:', response.data); // Log entire response data
 
             // Ensure userId is stored if present
