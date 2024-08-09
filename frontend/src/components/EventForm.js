@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Navigation from './NavBar';
+import { API_HOST } from '../config';
+
 
 function EventForm() {
   const [eventName, setEventName] = useState('');
@@ -11,6 +13,7 @@ function EventForm() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [message, setMessage] = useState('');
+  
 
   const navigate = useNavigate();
 
@@ -18,7 +21,7 @@ function EventForm() {
     const fetchCategories = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5001/api/events/categories', {
+        const response = await axios.get(API_HOST + '/api/events/categories', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCategories(response.data);

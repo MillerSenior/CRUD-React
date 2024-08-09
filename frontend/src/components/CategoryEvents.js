@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Navigation from "./NavBar";
+import { API_HOST } from '../config';
+
 
 function CategoryEvents() {
     const { categoryId } = useParams();
@@ -12,7 +14,7 @@ function CategoryEvents() {
         const fetchEvents = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`http://localhost:5001/api/events/category/${categoryId}`, {
+                const response = await axios.get(API_HOST + `/api/events/category/${categoryId}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setEvents(response.data.events);
