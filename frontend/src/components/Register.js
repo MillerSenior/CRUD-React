@@ -121,8 +121,15 @@ function Register() {
     //     </div>
     // );
     return (
-        <div className="flex items-center justify-center min-h-screen bg-base-200 p-4">
-            <div className="card w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl bg-white shadow-xl rounded-lg">
+        <>
+            <div className="navbar bg-base-100">
+                <a className="btn btn-ghost text-xl">React Crud</a>
+                <div className="navbar-end">
+                    <BackButton className="btn btn-secondary w-full"/>
+                </div>
+            </div>
+            <div className="flex items-center justify-center min-h-screen bg-base-200 p-4">
+                <div className="card w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl bg-white shadow-xl rounded-lg">
                 <div className="card-body">
                     <h2 className="card-title text-center text-2xl font-bold mb-6">Register</h2>
                     {error && <p className="text-red-500 text-center mb-4">{error}</p>}
@@ -177,12 +184,10 @@ function Register() {
                         </div>
                         <button type="submit" className="btn btn-primary w-full">Register</button>
                     </form>
-                    <div className="mt-4">
-                        <BackButton className="btn btn-secondary w-full" />
-                    </div>
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

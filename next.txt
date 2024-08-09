@@ -2,4 +2,4 @@
 -authentication biometric
 -forgot password functionality (will app send email)
 -data visualization w/graph, find fake seed data, add table to database
--links not visible on other pages???
+-fix navbar
