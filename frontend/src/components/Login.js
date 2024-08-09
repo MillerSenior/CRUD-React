@@ -3,6 +3,7 @@ import axios from 'axios';
 import {useNavigate, Link} from 'react-router-dom';
 import BiometricLogin from './BiometricLogin';
 import BackButton from "./BackButton";
+import { API_HOST } from '../config';
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -15,7 +16,7 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5001/api/login', {username, password});
+            const response = await axios.post(API_HOST + '/api/login', {username, password});
             console.log('Login response:', response.data); // Log entire response data
 
             // Ensure userId is stored if present

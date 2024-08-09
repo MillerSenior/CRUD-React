@@ -24,6 +24,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import BackButton from './BackButton';
 import Logout from './Logout';
+import { API_HOST } from '../config';
+
 
 const Navigation = () => {
     const [categoriesExist, setCategoriesExist] = useState(false);
@@ -32,7 +34,7 @@ const Navigation = () => {
         const fetchCategories = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get('http://localhost:5001/api/events/categories', {
+                const response = await axios.get(API_HOST + '/api/events/categories', {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 console.log('Categories fetched:', response.data); // Log the fetched categories

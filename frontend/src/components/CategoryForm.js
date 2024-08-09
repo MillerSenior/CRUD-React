@@ -83,6 +83,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Navigation from "./NavBar";
+import { API_HOST } from '../config';
+
 
 function CategoryForm() {
     const [categoryName, setCategoryName] = useState('');
@@ -92,7 +94,7 @@ function CategoryForm() {
     const fetchCategories = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:5001/api/categories', {
+            const response = await axios.get(API_HOST + '/api/categories', {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setCategories(response.data);
