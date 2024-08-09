@@ -4,10 +4,13 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const db = require('./db');  // Import the db connection
 const bcrypt = require('bcrypt');
+const path = require('path');
 const jwt = require('jsonwebtoken');
 
 const app = express();
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5000;
+
+app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 // Middleware
 app.use(cors());
@@ -83,6 +86,10 @@ app.post('/api/login', async (req, res) => {
 app.get('/api/protected', authMiddleware, (req, res) => {
   res.send(`Hello user ${req.user.id}, this is a protected route!`);
 });
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
+})
 
 // Start the server
 app.listen(port, () => {
