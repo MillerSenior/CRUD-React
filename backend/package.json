@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix frontend",
+    "client": "npm start --prefix ../frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +24,7 @@
     "mysql2": "^3.10.1"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.4"
   }
 }
