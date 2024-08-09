@@ -3,14 +3,8 @@
     "concurrently": "^8.2.2"
   },
   "scripts": {
-<<<<<<< HEAD
     "start": "concurrently \"npm run start --prefix frontend\" \"npm run start --prefix backend\"",
-    "dev": "concurrently \"npm run start --prefix frontend\" \"npm run dev --prefix backend\"", 
-    "production": "npm run build --prefix frontend && npm run start --prefix backend\""   
-=======
-    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
-    "start:frontend": "cd frontend && npm start",
-    "start:backend": "cd backend && node server.js"
->>>>>>> 66d63aeed609bc9e596f005549e3adfa308920c4
+    "dev": "concurrently \"npm run start --prefix frontend\" \"npm run dev --prefix backend\"",
+    "production": "npm run build --prefix frontend && npm run start --prefix backend\""
   }
 }
