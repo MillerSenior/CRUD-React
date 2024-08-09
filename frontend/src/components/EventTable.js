@@ -108,7 +108,7 @@ function EventTable() {
   };
 
   return (
-      <div>
+      <>
         <Navigation/>
 
         <div className="card bg-base-100  shadow-2xl mx-auto mt-8 p-4">
@@ -256,7 +256,7 @@ function EventTable() {
               </div>
             </div>
         )}
-      </div>
+      </>
   );
 }
 

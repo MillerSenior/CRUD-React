@@ -131,33 +131,65 @@ function CategoryForm() {
     return (
         <div>
             <Navigation/>
-            <h2>Add Category</h2>
-            {message && <p>{message}</p>}
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Category Name:</label>
-                    <input
-                        type="text"
-                        value={categoryName}
-                        onChange={(e) => setCategoryName(e.target.value)}
-                        required
-                    />
+                <div className="card bg-base-100 w-96 shadow-xl mx-auto mt-8">
+                    <div className="card-body">
+                        <h2 className="card-title text-center text-2xl font-bold mb-6">Add Category</h2>
+                        {message && <p>{message}</p>}
+                        <form onSubmit={handleSubmit} className="space-y-4">
+                            <div>
+                                <label className="block font-semibold">Category Name:</label>
+                                <input
+                                    type="text"
+                                    value={categoryName}
+                                    onChange={(e) => setCategoryName(e.target.value)}
+                                    required
+                                    className="input input-bordered w-full"
+                                />
+                            </div>
+                            <div className="card-actions justify-center">
+                                <button className="btn btn-primary" type="submit">Add Category</button>
+                            </div>
+
+                        </form>
+                        {/*<h2>Your Categories</h2>*/}
+                        {/*{categories.length > 0 ? (*/}
+                        {/*    <ul>*/}
+                        {/*        {categories.map((category) => (*/}
+                        {/*            <li key={category.id}>*/}
+                        {/*                <Link to={`/category-events/${category.id}`}>{category.name}</Link>*/}
+                        {/*            </li>*/}
+                        {/*        ))}*/}
+                        {/*    </ul>*/}
+                        {/*) : (*/}
+                        {/*    <p>No categories found.</p>*/}
+                        {/*)}*/}
+                        <h2>Your Categories</h2>
+                        {categories.length > 0 ? (
+                            <table className={'table'}>
+                                <thead>
+                                <tr>
+                                    <th>Category Name</th>
+                                    <th>Link</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {categories.map((category) => (
+                                    <tr  className="bg-base-200" key={category.id}>
+                                        <td>{category.name}</td>
+                                        <td>
+                                            <Link className="link link-primary" to={`/category-events/${category.id}`}>View Events</Link>
+                                        </td>
+                                    </tr>
+                                ))}
+                                </tbody>
+                            </table>
+                        ) : (
+                            <p>No categories found.</p>
+                        )}
+
+                    </div>
                 </div>
-                <button type="submit">Add Category</button>
-            </form>
-            <h2>Your Categories</h2>
-            {categories.length > 0 ? (
-                <ul>
-                    {categories.map((category) => (
-                        <li key={category.id}>
-                            <Link to={`/category-events/${category.id}`}>{category.name}</Link>
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                <p>No categories found.</p>
-            )}
-        </div>
+            </div>
     );
 }
 
