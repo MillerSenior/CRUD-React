@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import {useNavigate, Link} from 'react-router-dom';
 import BiometricLogin from './BiometricLogin';
+import BackButton from "./BackButton";
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -99,6 +100,10 @@ function Login() {
     //     </div>
     // );
     return (
+        <>
+            <div className="navbar bg-base-100">
+                <a className="btn btn-ghost text-xl">React Crud</a>
+             </div>
         <div className="flex items-center justify-center min-h-screen bg-base-200 p-4">
             <div className="card w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl bg-white shadow-xl rounded-lg">
                 <div className="card-body">
@@ -144,6 +149,7 @@ function Login() {
                 </div>
             </div>
         </div>
+            </>
     );
 }
 
