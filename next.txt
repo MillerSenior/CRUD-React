@@ -3,3 +3,4 @@
 -forgot password functionality (will app send email)
 -data visualization w/graph, find fake seed data, add table to database
 -fix navbar
+-clean all commented code out

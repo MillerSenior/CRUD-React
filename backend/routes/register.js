@@ -60,9 +60,17 @@ router.post('/', async (req, res) => {
 });
 
 const isValidUsername = (username) => {
-    const alphanumericRegex = /^[a-zA-Z0-9]+$/;
-    return alphanumericRegex.test(username) && username.length >= 3 && username.length <= 20;
+    // Trim any leading/trailing spaces from the input
+    const trimmedUsername = username.trim();
+
+    // Updated regex to allow alphanumeric characters and spaces in between
+    const alphanumericWithSpaceRegex = /^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)*$/;
+
+    // Test the sanitized input
+    return alphanumericWithSpaceRegex.test(trimmedUsername) && trimmedUsername.length >= 3 && trimmedUsername.length <= 20;
 };
+
+
 
 const isValidEmail = (emails) => {
     const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;

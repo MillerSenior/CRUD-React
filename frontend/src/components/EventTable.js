@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navigation from './NavBar';
 import { useNavigate } from 'react-router-dom';
+import {API_HOST} from "../config";
 
 function EventTable() {
   const [events, setEvents] = useState([]);
@@ -17,7 +18,7 @@ function EventTable() {
     const fetchEvents = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5001/api/events', {
+        const response = await axios.get(API_HOST + '/api/events', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setEvents(response.data);
@@ -30,7 +31,7 @@ function EventTable() {
     const fetchCategories = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5001/api/events/categories', {
+        const response = await axios.get(API_HOST + '/api/events/categories', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCategories(response.data);
@@ -56,7 +57,7 @@ function EventTable() {
   const confirmDelete = async () => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5001/api/events/${eventToDelete.id}`, {
+      await axios.delete(API_HOST +`/api/events/${eventToDelete.id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setEvents(events.filter((e) => e.id !== eventToDelete.id));
@@ -80,7 +81,7 @@ function EventTable() {
         categoryId: editingEvent.category_id,  // Change 'category_id' to 'categoryId'
       };
       console.log('Event Details:', eventDetails);  // Log the event details
-      const response = await axios.put(`http://localhost:5001/api/events/${editingEvent.id}`, eventDetails, {
+      const response = await axios.put(API_HOST +`/api/events/${editingEvent.id}`, eventDetails, {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log('Response:', response);  // Log the response

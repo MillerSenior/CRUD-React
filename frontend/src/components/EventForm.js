@@ -39,7 +39,7 @@ function EventForm() {
     try {
       const token = localStorage.getItem('token');
       const eventDetails = { eventName, date, time, attendees, categoryId: selectedCategory };
-      await axios.post('http://localhost:5001/api/events', eventDetails, {
+      await axios.post(API_HOST +'/api/events', eventDetails, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessage('Event added successfully!');
