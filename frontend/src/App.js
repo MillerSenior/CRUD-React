@@ -7,6 +7,8 @@
 // import EventTable from './components/EventTable';
 // import CategoryForm from './components/CategoryForm';
 // import PrivateRoute from './components/PrivateRoute';
+// import CategoryEvents from './components/CategoryEvents';
+// import Chart from './pages/Chart'; // Import the Chart page
 //
 // function App() {
 //     return (
@@ -20,9 +22,14 @@
 //                 <Route element={<PrivateRoute />}>
 //                     <Route path="/dashboard" element={<Dashboard />} />
 //                     <Route path="/event-form" element={<EventForm />} />
+//                     <Route path="/event-form/:id" element={<EventForm />} /> {/* New route for editing */}
 //                     <Route path="/event-table" element={<EventTable />} />
 //                     <Route path="/category-form" element={<CategoryForm />} />
+//                     <Route path="/category-events/:categoryId" element={<CategoryEvents />} />
 //                 </Route>
+//
+//                 {/* Chart Route */}
+//                 <Route path="/chart" element={<Chart />} />
 //
 //                 {/* Default route */}
 //                 <Route path="/" element={<Navigate to="/login" />} />
@@ -41,7 +48,8 @@ import EventForm from './components/EventForm';
 import EventTable from './components/EventTable';
 import CategoryForm from './components/CategoryForm';
 import PrivateRoute from './components/PrivateRoute';
-import CategoryEvents from "./components/CategoryEvents";
+import CategoryEvents from './components/CategoryEvents';
+import Chart from './pages/Chart'; // Import the Chart page
 
 function App() {
     return (
@@ -60,6 +68,9 @@ function App() {
                     <Route path="/category-form" element={<CategoryForm />} />
                     <Route path="/category-events/:categoryId" element={<CategoryEvents />} />
                 </Route>
+
+                {/* Chart Route */}
+                <Route path="/chart" element={<Chart />} />
 
                 {/* Default route */}
                 <Route path="/" element={<Navigate to="/login" />} />

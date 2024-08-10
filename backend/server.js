@@ -40,13 +40,15 @@ const registerRoute = require('./routes/register'); // Import the register route
 const dashboardRoute = require('./routes/dashboard'); // Import the dashboard route
 const categoriesRoute = require('./routes/categories'); // Import the categories route
 const eventsRoute = require('./routes/events'); // Import the categories route
+const usStatesRouter = require('./routes/usStates');
 
 app.use('/auth', authRoutes); // Authentication routes
 app.use('/api/register', registerRoute); // Registration route
 app.use('/api/categories', categoriesRoute); // Categories route
 app.use('/api/dashboard', dashboardRoute);
 app.use('/api/events', eventsRoute);
-//app.use('/api', dashboardRoute); // Add this line to use the dashboard route
+app.use('/api/us-states', usStatesRouter);
+//
 
 // Login route
 app.post('/api/login', async (req, res) => {

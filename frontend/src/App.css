@@ -56,3 +56,8 @@
 .modal button {
   margin-right: 0.5em;
 }
+.chart-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}

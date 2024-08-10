@@ -4,3 +4,4 @@
 -data visualization w/graph, find fake seed data, add table to database
 -fix navbar
 -clean all commented code out
+-take components and put them into pages
