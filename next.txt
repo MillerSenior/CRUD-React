@@ -1,7 +1,8 @@
 -image adding functionality(query machine, select image, check and resize before adding to database)
+-add different charts on cards with different types of graphs
 -authentication biometric
--forgot password functionality (will app send email)
--data visualization w/graph, find fake seed data, add table to database
--fix navbar
+-forgot password functionality (will app send email, using javascript)
+-fix navbar/move links over some to the left
 -clean all commented code out
 -take components and put them into pages
+-add footer

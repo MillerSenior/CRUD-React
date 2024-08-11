@@ -3,6 +3,7 @@ import axios from 'axios';
 import Navigation from './NavBar';
 import { useNavigate } from 'react-router-dom';
 import {API_HOST} from "../config";
+import Container from "./Container";
 
 function EventTable() {
   const [events, setEvents] = useState([]);
@@ -112,6 +113,7 @@ function EventTable() {
       <>
         <Navigation/>
 
+      <Container>
         <div className="card bg-base-100  shadow-2xl mx-auto mt-8 p-4">
           <h2 className="card-title text-center">Event Table</h2>
           {message && <p className="text-red-500 text-center">{message}</p>}
@@ -257,6 +259,7 @@ function EventTable() {
               </div>
             </div>
         )}
+      </Container>
       </>
   );
 }
