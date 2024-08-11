@@ -16,7 +16,12 @@ function Chart() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(API_HOST + '/api/us-states');
+                const token = localStorage.getItem('token');
+                const response = await axios.get(API_HOST + '/api/us-states', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
                 const data = response.data;
 
                 const formattedData = {
@@ -37,6 +42,7 @@ function Chart() {
                 setError(error.message);
             }
         };
+
 
         fetchData();
     }, []);
