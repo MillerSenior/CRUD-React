@@ -8,10 +8,13 @@ import axios from 'axios';
 import { API_HOST } from "../config";
 import AllCharts from "../components/AllCharts";
 import Container from "../components/Container";
+import StateDropdown from "../components/StateDropdown";
+import StateDataGraph from "../components/StateDataGraph";
 
 function Chart() {
     const [chartData, setChartData] = useState(null);
     const [error, setError] = useState(null);
+    const [selectedState, setSelectedState] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -40,6 +43,7 @@ function Chart() {
                 setChartData(formattedData);
             } catch (error) {
                 setError(error.message);
+                console.log("something went wrong");
             }
         };
 
@@ -82,6 +86,11 @@ function Chart() {
                     <div className="card bg-base-100 shadow-xl border-2 border-gray-700 border-opacity-50 p-4">
                         <h2 className="text-lg font-semibold mb-2 text-center">Doughnut Chart</h2>
                         {chartData ? <UsStatesDoughnutChart chartData={chartData}/> : <p>Loading chart...</p>}
+                    </div>
+                    <div className="card bg-base-100 shadow-xl border-2 border-gray-700 border-opacity-50 p-4">
+                        <h2 className="text-lg font-semibold mb-2 text-center">State Data Visualization</h2>
+                        <StateDropdown onSelect={setSelectedState}/>
+                        {selectedState && <StateDataGraph stateName={selectedState}/>}
                     </div>
                 </div>
             </div>

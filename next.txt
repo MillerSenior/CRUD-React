@@ -1,8 +1,22 @@
+--------FUNCTIONALITY---------------
+
 -image adding functionality(query machine, select image, check and resize before adding to database)
--add different charts on cards with different types of graphs
--authentication biometric
+
+-authentication biometric/facial recognition
+
 -forgot password functionality (will app send email, using javascript)
--fix navbar/move links over some to the left
+
+-take navbar out of components and refactor into pages
+
+----------STYLING------------
+
+-clean up elements to use simple to understand daisy ui/where possible, tailwind is necessary in some places/or flex
+
+-fix navbar/move links over some to the left/make navbar stop jumping on redirect
+
 -clean all commented code out
+
 -take components and put them into pages
+
 -add footer
+
