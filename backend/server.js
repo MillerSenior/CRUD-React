@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const multer = require('multer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const db = require('./db');  // Import the db connection
@@ -9,6 +10,14 @@ const jwt = require('jsonwebtoken');
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+// Setup multer for file uploads
+const storage = multer.memoryStorage();
+const upload = multer({
+  storage,
+  limits: { fileSize: 1024 * 1024 * 5 } // Limit to 5MB
+});
+
 
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
@@ -41,6 +50,7 @@ const dashboardRoute = require('./routes/dashboard'); // Import the dashboard ro
 const categoriesRoute = require('./routes/categories'); // Import the categories route
 const eventsRoute = require('./routes/events'); // Import the categories route
 const usStatesRouter = require('./routes/usStates');
+const imageRoutes = require('./routes/images');
 
 app.use('/auth', authRoutes); // Authentication routes
 app.use('/api/register', registerRoute); // Registration route
@@ -48,6 +58,7 @@ app.use('/api/categories', categoriesRoute); // Categories route
 app.use('/api/dashboard', dashboardRoute);
 app.use('/api/events', eventsRoute);
 app.use('/api/us-states', usStatesRouter);
+app.use('/api/images', imageRoutes);
 //
 
 // Login route
@@ -92,6 +103,19 @@ app.get('/api/protected', authMiddleware, (req, res) => {
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
 })
+
+// // Image upload route
+// app.post('/api/upload', authMiddleware, upload.single('image'), async (req, res) => {
+//   const { user_id } = req.user; // Assuming you have user info from authMiddleware
+//   const { originalname, mimetype, buffer } = req.file;
+//
+//   // Save image to the database
+//   const query = 'INSERT INTO images (user_id, image_data, file_name, mime_type) VALUES (?, ?, ?, ?)';
+//   db.query(query, [user_id, buffer, originalname, mimetype], (err, result) => {
+//     if (err) return res.status(500).json({ message: 'Database error', error: err });
+//     res.status(201).json({ message: 'Image uploaded successfully', imageId: result.insertId });
+//   });
+// });
 
 // Start the server
 app.listen(port, () => {

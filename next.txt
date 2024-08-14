@@ -1,14 +1,14 @@
 --------FUNCTIONALITY---------------
 
--image adding functionality(query machine, select image, check and resize before adding to database)
+-image adding functionality (query machine, select image, check and resize before adding to database)
 
 -authentication biometric/facial recognition
 
 -forgot password functionality (will app send email, using javascript)
 
--take navbar out of components and refactor into pages
-
 ----------STYLING------------
+
+-take navbar out of components and refactor into pages
 
 -clean up elements to use simple to understand daisy ui/where possible, tailwind is necessary in some places/or flex
 

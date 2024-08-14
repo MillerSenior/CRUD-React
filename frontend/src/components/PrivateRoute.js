@@ -20,14 +20,14 @@ const PrivateRoute = () => {
 
         checkAuth();
 
-        const logInterval = setInterval(() => {
-            console.log('Logging at 20-second interval...');
-        }, 20000); // Log every 20 seconds
-
-        return () => {
-            clearInterval(logInterval);
-            console.log('Logging interval cleared.');
-        };
+        // const logInterval = setInterval(() => {
+        //     console.log('Logging at 20-second interval...');
+        // }, 20000); // Log every 20 seconds
+        //
+        // return () => {
+        //     clearInterval(logInterval);
+        //     console.log('Logging interval cleared.');
+        // };
     }, []);
 
     if (isAuthenticated === null) {

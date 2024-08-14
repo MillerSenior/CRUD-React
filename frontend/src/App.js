@@ -8,7 +8,9 @@ import EventTable from './components/EventTable';
 import CategoryForm from './components/CategoryForm';
 import PrivateRoute from './components/PrivateRoute';
 import CategoryEvents from './components/CategoryEvents';
-import Chart from './pages/Chart'; // Import the Chart page
+import Chart from './pages/Chart';
+import ImageViewPage from "./pages/ImageViewPage";
+import ImageUploadPage from "./pages/ImageUploadPage"; // Import the Chart page
 
 function App() {
     return (
@@ -26,6 +28,8 @@ function App() {
                     <Route path="/event-table" element={<EventTable />} />
                     <Route path="/category-form" element={<CategoryForm />} />
                     <Route path="/category-events/:categoryId" element={<CategoryEvents />} />
+                    <Route path="/upload" element={<ImageUploadPage />} />
+                    <Route path="/user-images" element={<ImageViewPage />} />
                 </Route>
 
                 {/* Chart Route */}

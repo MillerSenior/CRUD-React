@@ -131,12 +131,17 @@ const Navigation = () => {
                         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                     >
                         <li><Link to="/dashboard" className="btn btn-ghost text-xl">Home</Link></li>
-                        {categoriesExist && <li><Link to="/event-form" className="btn btn-ghost text-xl">Add Event</Link></li>}
-                        {categoriesExist && <li><Link to="/event-table" className="btn btn-ghost text-xl">View Events</Link></li>}
+                        {categoriesExist &&
+                            <li><Link to="/event-form" className="btn btn-ghost text-xl">Add Event</Link></li>}
+                        {categoriesExist &&
+                            <li><Link to="/event-table" className="btn btn-ghost text-xl">View Events</Link></li>}
                         <li><Link to="/category-form" className="btn btn-ghost text-xl">Add Category</Link></li>
-                        <li><Link to="/chart" className="btn btn-ghost text-xl">View Chart</Link></li> {/* New Chart link */}
-                        <li><BackButton className="btn btn-ghost text-xl" /></li>
-                        <li><Logout className="btn btn-ghost text-xl" /></li>
+                        <li><Link to="/chart" className="btn btn-ghost text-xl">View Chart</Link></li>
+                        {/* New Chart link */}
+                        <li><Link to="/upload" className="btn btn-ghost text-xl">Upload Image</Link></li>
+                        <li><Link to="/user-images" className="btn btn-ghost text-xl">View Images</Link></li>
+                        <li><BackButton className="btn btn-ghost text-xl"/></li>
+                        <li><Logout className="btn btn-ghost text-xl"/></li>
                     </ul>
                 </div>
                 <div className="hidden lg:flex">
@@ -145,8 +150,10 @@ const Navigation = () => {
                     {categoriesExist && <Link to="/event-table" className="btn btn-ghost text-xl">View Events</Link>}
                     <Link to="/category-form" className="btn btn-ghost text-xl">Add Category</Link>
                     <Link to="/chart" className="btn btn-ghost text-xl">View Chart</Link> {/* New Chart link */}
-                    <BackButton className="btn btn-ghost text-xl" />
-                    <Logout className="btn btn-ghost text-xl" />
+                    <Link to="/upload" className="btn btn-ghost text-xl">Upload Image</Link>
+                    <Link to="/user-images" className="btn btn-ghost text-xl">View Images</Link>
+                    <BackButton className="btn btn-ghost text-xl"/>
+                    <Logout className="btn btn-ghost text-xl"/>
                 </div>
             </div>
         </nav>
