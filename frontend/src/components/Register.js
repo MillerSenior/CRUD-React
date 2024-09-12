@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import BackButton from './BackButton';
 import {API_HOST} from "../config";
-console.log('in the register component');
+//console.log('in the register component');
 function Register() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');

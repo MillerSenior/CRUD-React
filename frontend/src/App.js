@@ -29,7 +29,7 @@ function App() {
                     <Route path="/category-form" element={<CategoryForm />} />
                     <Route path="/category-events/:categoryId" element={<CategoryEvents />} />
                     <Route path="/upload" element={<ImageUploadPage />} />
-                    <Route path="/user-images" element={<ImageViewPage />} />
+                    <Route path="/imageView" element={<ImageViewPage />} />
                 </Route>
 
                 {/* Chart Route */}

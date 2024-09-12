@@ -39,25 +39,21 @@ router.get('/:id', authMiddleware, (req, res) => {
     });
 });
 
-// Fetch all images by user ID route
 router.get('/user-images', authMiddleware, (req, res) => {
     const userId = req.user.id;
     const query = 'SELECT id, file_name, mime_type FROM images WHERE user_id = ?';
 
     db.query(query, [userId], (err, results) => {
-        if (err) return res.status(500).json({ message: 'Database error', error: err });
+        if (err) {
+            return res.status(500).json({ message: 'Database error', error: err });
+        }
+
+        // Log the response for debugging
+        console.log(results);
+
         res.json(results);
     });
 });
 
-//fetch user
-router.get('/user', authMiddleware, (req, res) => {
-    const userId = req.user.id;
-    const query = 'SELECT id, file_name, mime_type FROM images WHERE user_id = ?';
 
-    db.query(query, [userId], (err, results) => {
-        if (err) return res.status(500).json({ message: 'Database error', error: err });
-        res.json(results);
-    });
-});
 module.exports = router;

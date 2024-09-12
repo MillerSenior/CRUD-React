@@ -93,10 +93,10 @@ const Navigation = () => {
                 const response = await axios.get(API_HOST + '/api/events/categories', {
                     headers: { Authorization: `Bearer ${token}` },
                 });
-                console.log('Categories fetched:', response.data); // Log the fetched categories
+               // console.log('Categories fetched:', response.data); // Log the fetched categories
                 setCategoriesExist(response.data.length > 0);
             } catch (err) {
-                console.error('Error fetching categories:', err);
+               // console.error('Error fetching categories:', err);
             }
         };
 
@@ -139,7 +139,7 @@ const Navigation = () => {
                         <li><Link to="/chart" className="btn btn-ghost text-xl">View Chart</Link></li>
                         {/* New Chart link */}
                         <li><Link to="/upload" className="btn btn-ghost text-xl">Upload Image</Link></li>
-                        <li><Link to="/user-images" className="btn btn-ghost text-xl">View Images</Link></li>
+                        <li><Link to="/imageView" className="btn btn-ghost text-xl">View Images</Link></li>
                         <li><BackButton className="btn btn-ghost text-xl"/></li>
                         <li><Logout className="btn btn-ghost text-xl"/></li>
                     </ul>
@@ -151,7 +151,7 @@ const Navigation = () => {
                     <Link to="/category-form" className="btn btn-ghost text-xl">Add Category</Link>
                     <Link to="/chart" className="btn btn-ghost text-xl">View Chart</Link> {/* New Chart link */}
                     <Link to="/upload" className="btn btn-ghost text-xl">Upload Image</Link>
-                    <Link to="/user-images" className="btn btn-ghost text-xl">View Images</Link>
+                    <Link to="/imageView" className="btn btn-ghost text-xl">View Images</Link>
                     <BackButton className="btn btn-ghost text-xl"/>
                     <Logout className="btn btn-ghost text-xl"/>
                 </div>

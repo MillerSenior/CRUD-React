@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import {API_HOST} from "../config";
 
-const API_HOST = 'http://localhost:5001'; // Adjust as needed
+//const API_HOST = 'http://localhost:5001'; // Adjust as needed
 
-const ImageView = (input) => {
+const ImageView = () => {
     const [imageData, setImageData] = useState(null);
-    console.log('Input:', input);
-const {id}=input;
-
+    console.log('Image Data:', imageData.toString());
     const fetchImage = async () => {
+        //console.log({} + ": is here");
         try {
-            const response = await axios.get(`${API_HOST}/api/images/${id}`, {
+            const response = await axios.get(`${API_HOST}/api/images/${input}`, {
                 responseType: 'arraybuffer', // Ensure binary data is correctly handled
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`

@@ -7,10 +7,10 @@ const PrivateRoute = () => {
     useEffect(() => {
         const checkAuth = async () => {
             const token = localStorage.getItem('token');
-            console.log("Checking authentication...");
+          //  console.log("Checking authentication...");
 
             if (token) {
-                console.log('User authenticated.');
+               // console.log('User authenticated.');
                 setIsAuthenticated(true);
             } else {
                 console.log('Token not found. Redirecting to login...');
@@ -36,10 +36,10 @@ const PrivateRoute = () => {
     }
 
     if (isAuthenticated) {
-        console.log('Rendering protected route...');
+        //console.log('Rendering protected route...');
         return <Outlet />;
     } else {
-        console.log('Redirecting to login...');
+       // console.log('Redirecting to login...');
         return <Navigate to="/login" />;
     }
 };

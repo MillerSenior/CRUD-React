@@ -51,6 +51,7 @@ const categoriesRoute = require('./routes/categories'); // Import the categories
 const eventsRoute = require('./routes/events'); // Import the categories route
 const usStatesRouter = require('./routes/usStates');
 const imageRoutes = require('./routes/images');
+const imageViewRoute = require('./routes/imageView');
 
 app.use('/auth', authRoutes); // Authentication routes
 app.use('/api/register', registerRoute); // Registration route
@@ -59,6 +60,7 @@ app.use('/api/dashboard', dashboardRoute);
 app.use('/api/events', eventsRoute);
 app.use('/api/us-states', usStatesRouter);
 app.use('/api/images', imageRoutes);
+app.use('/api/imageView', imageViewRoute);
 //
 
 // Login route

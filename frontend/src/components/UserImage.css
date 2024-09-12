@@ -1,0 +1,15 @@
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.image-card {
+    width: calc(33.333% - 10px);
+    box-sizing: border-box;
+}
+
+.image-thumbnail {
+    width: 100%;
+    height: auto;
+}
