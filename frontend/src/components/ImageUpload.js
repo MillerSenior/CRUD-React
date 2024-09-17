@@ -26,7 +26,7 @@ const ImageUpload = () => {
                 }
             });
             setMessage('Image uploaded successfully');
-            navigate('/api/imageView/user-images');
+            navigate('/imageView');
         } catch (error) {
             setMessage('Failed to upload image');
         }
