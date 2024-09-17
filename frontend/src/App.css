@@ -61,3 +61,25 @@
   max-width: 800px;
   margin: 0 auto;
 }
+/* Spinner.css */
+.spinner {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.spinner__circle {
+  transform: rotate(-90deg);
+  animation: rotate 2s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
