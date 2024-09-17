@@ -1,0 +1,224 @@
+/*!* Container styling *!*/
+/*.user-images-container {*/
+/*    padding: 20px;*/
+/*    max-width: 1200px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*!* Grid styling for responsive layout *!*/
+/*.image-grid {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    gap: 20px;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*!* Wrapper around each image *!*/
+/*.image-wrapper {*/
+/*    text-align: center;*/
+/*    max-width: 150px;*/
+/*    cursor: pointer; !* Make the image clickable *!*/
+/*}*/
+
+/*!* Styling the images to display full image without cropping *!*/
+/*.user-image {*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    max-width: 150px;*/
+/*    max-height: 150px;*/
+/*    border-radius: 10px; !* Curved edges *!*/
+/*    transition: transform 0.2s ease-in-out; !* Smooth hover effect *!*/
+/*}*/
+
+/*!* Image hover effect *!*/
+/*.user-image:hover {*/
+/*    transform: scale(1.05); !* Slight zoom on hover *!*/
+/*}*/
+
+/*!* Filename styling *!*/
+/*.image-filename {*/
+/*    margin-top: 10px;*/
+/*    font-size: 14px;*/
+/*    color: #555;*/
+/*}*/
+
+/*!* Modal styling *!*/
+/*.image-modal {*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background: rgba(0, 0, 0, 0.8); !* Semi-transparent background *!*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    z-index: 1000; !* Ensures modal is on top *!*/
+/*    opacity: 1; !* Ensures modal is visible *!*/
+/*}*/
+
+/*!* Modal content *!*/
+/*.image-modal-content {*/
+/*    position: relative;*/
+/*    background-color: #fff;*/
+/*    padding: 20px;*/
+/*    border-radius: 10px;*/
+/*    text-align: center;*/
+/*    max-width: 90%;*/
+/*    max-height: 80%;*/
+/*}*/
+
+/*!* Modal image styling *!*/
+/*.modal-image {*/
+/*    max-width: 100%;*/
+/*    max-height: 100%;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*!* Close button styling *!*/
+/*.close-btn {*/
+/*    position: absolute;*/
+/*    top: 10px;*/
+/*    right: 20px;*/
+/*    font-size: 30px;*/
+/*    color: #000;*/
+/*    cursor: pointer;*/
+/*    z-index: 1001; !* Ensure close button stays on top *!*/
+/*}*/
+
+/*!* Modal filename styling *!*/
+/*.image-modal-filename {*/
+/*    margin-top: 10px;*/
+/*    color: #333;*/
+/*    font-size: 16px;*/
+/*}*/
+
+/*!* Responsive design for mobile screens *!*/
+/*@media (max-width: 600px) {*/
+/*    .user-image {*/
+/*        max-width: 100px;*/
+/*        max-height: 100px;*/
+/*    }*/
+
+/*    .image-wrapper {*/
+/*        max-width: 100px;*/
+/*    }*/
+
+/*    .modal-image {*/
+/*        max-width: 80%;*/
+/*        max-height: 80%;*/
+/*    }*/
+/*}*/
+/* Container styling */
+.user-images-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Grid styling for responsive layout */
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Wrapper around each image */
+.image-wrapper {
+    text-align: center;
+    max-width: 150px;
+    cursor: pointer; /* Make the image clickable */
+}
+
+/* Styling the images to display full image without cropping */
+.user-image {
+    width: 100%;
+    height: auto;
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 10px; /* Curved edges */
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+/* Image hover effect */
+.user-image:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Filename styling */
+.image-filename {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Modal styling */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensures modal is on top */
+    opacity: 1; /* Ensures modal is visible */
+}
+
+/* Modal content */
+.image-modal-content {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 90%;
+    max-height: 90%; /* Adjusted to fit within viewport */
+    overflow: auto; /* Enable scrolling if content exceeds dimensions */
+}
+
+/* Modal image styling */
+.modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensure image fits within modal without distortion */
+    border-radius: 10px;
+}
+
+/* Close button styling */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: #000;
+    cursor: pointer;
+    z-index: 1001; /* Ensure close button stays on top */
+}
+
+/* Modal filename styling */
+.image-modal-filename {
+    margin-top: 10px;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Responsive design for mobile screens */
+@media (max-width: 600px) {
+    .user-image {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    .image-wrapper {
+        max-width: 100px;
+    }
+
+    .modal-image {
+        max-width: 80%;
+        max-height: 80%;
+    }
+}

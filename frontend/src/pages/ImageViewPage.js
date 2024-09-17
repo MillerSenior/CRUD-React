@@ -10,7 +10,6 @@ const ImageViewPage = () => {
     return (
         <div className="image-view-page">
             <Navigation/>
-            <h2>View Image</h2>
             {/*<ImageView imageId={id} />*/}
             <UserImages/>
         </div>
