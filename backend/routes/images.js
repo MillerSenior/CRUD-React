@@ -25,7 +25,7 @@ router.post('/upload', authMiddleware, upload.single('image'), async (req, res) 
     });
 });
 
-// // Image retrieval route
+// Image retrieval route
 router.get('/:id', authMiddleware, (req, res) => {
     const imageId = req.params.id;
     const query = 'SELECT image_data, mime_type FROM images WHERE id = ?';
@@ -39,21 +39,21 @@ router.get('/:id', authMiddleware, (req, res) => {
     });
 });
 
-router.get('/user-images', authMiddleware, (req, res) => {
-    const userId = req.user.id;
-    const query = 'SELECT id, file_name, mime_type FROM images WHERE user_id = ?';
-
-    db.query(query, [userId], (err, results) => {
-        if (err) {
-            return res.status(500).json({ message: 'Database error', error: err });
-        }
-
-        // Log the response for debugging
-        console.log(results);
-
-        res.json(results);
-    });
-});
+// router.get('/user-images', authMiddleware, (req, res) => {
+//     const userId = req.user.id;
+//     const query = 'SELECT id, file_name, mime_type FROM images WHERE user_id = ?';
+//
+//     db.query(query, [userId], (err, results) => {
+//         if (err) {
+//             return res.status(500).json({ message: 'Database error', error: err });
+//         }
+//
+//         // Log the response for debugging
+//         console.log(results);
+//
+//         res.json(results);
+//     });
+// });
 
 
 module.exports = router;
