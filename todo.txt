@@ -1,3 +1,2 @@
--make images smaller like file size
--image delete functionality
--once selected with modal, image scroll with arrows
+-fix entire ui, use components where necessary
+-implement facial recognition
