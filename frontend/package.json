@@ -9,6 +9,7 @@
     "axios": "^1.7.3",
     "chart.js": "^4.4.3",
     "daisyui": "^4.12.10",
+    "face-api.js": "^0.22.2",
     "jwt-decode": "^4.0.0",
     "lucide-react": "^0.447.0",
     "multer": "^1.4.5-lts.1",
